@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Usuario_servlet</servlet-name>
+        <servlet-class>control.Usuario_servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Produto_servlet</servlet-name>
+        <servlet-class>control.Produto_servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Usuario_servlet</servlet-name>
+        <url-pattern>/Usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Produto_servlet</servlet-name>
+        <url-pattern>/Produto</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

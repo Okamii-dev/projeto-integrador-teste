@@ -1,0 +1,10 @@
+fastapi==0.100.0
+uvicorn[standard]==0.22.0
+python-dotenv==1.0.0
+# Use a recent available google-genai version
+google-genai==1.42.0
+# LangChain: leave flexible to get a compatible release
+langchain
+chromadb==1.1.1
+langchain-google-genai
+pypdf==3.13.0
