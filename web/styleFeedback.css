@@ -1,0 +1,63 @@
+/* Fundo escuro transparente (Overlay) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Escurece o fundo */
+    backdrop-filter: blur(5px); /* Desfoque moderno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Fica em cima de tudo */
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+/* O Card do Aviso */
+.modal-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: scale(0.8);
+    animation: popIn 0.3s forwards;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Tipos de Mensagem */
+.modal-card.erro h2 { color: #d32f2f; } /* Vermelho */
+.modal-card.erro i { color: #d32f2f; font-size: 50px; margin-bottom: 10px; }
+.modal-card.erro button { background-color: #d32f2f; }
+
+.modal-card.sucesso h2 { color: #2e7d32; } /* Verde */
+.modal-card.sucesso i { color: #2e7d32; font-size: 50px; margin-bottom: 10px; }
+.modal-card.sucesso button { background-color: #2e7d32; }
+
+/* Texto */
+.modal-card p {
+    color: #555;
+    margin: 15px 0 25px 0;
+    font-size: 16px;
+}
+
+/* Botão OK */
+.modal-card button {
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-card button:hover { opacity: 0.9; transform: scale(1.05); }
+
+/* Animações */
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes popIn { to { transform: scale(1); } }

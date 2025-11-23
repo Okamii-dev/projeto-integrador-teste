@@ -1,100 +1,209 @@
- #formulario {
-      font-family: sans-serif;
-      background: #1f1204;
-      color: white;
-      padding: 5px;
-      text-align: center;
-      border-top-left-radius: 19px;
-      border-top-right-radius: 19px;
-      border-bottom: 5px solid white;
-      margin-bottom: 5px;
-      
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    /* --------------------------------------------------------------- */
-    /* --------------------------------------------------------------- */
-    /* FORMULARIO: fondo blanco y casillas --------------------------- */
-    form {
-      background-color: #1f1204;
-      margin: 10px;
-      margin: 0 auto;
-      border-radius: 19px;
-      width: 40%;
-      /* SECUENCIA: para centrar formulario */
-      position: absolute;
-      top: 50%;
-      left: 25%;
-      transform: translate(-50%, -50%);
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    /* TAMAÑO LETRA: nombre, apellido, e-mail, etc ----- */
-    label {
-      margin-left: 8px;
-      font-size: 12px;
-      padding: 5px;
-      display: block;
-      color: white;
-      width: 100%;
-      font-family: sans-serif;
-    }
+body {
+    background-color: #e8f5e9; /* Fundo Verde Claro */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-    /* -------------------------------------------------- */
-    /* EDICION CADA INPUT: diseño ----------------------- */
-    input {
-      margin-bottom: 10px;
-      width: 95%;
-      padding: 2%;
-      margin-left: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      
-      font-style: italic;
-    }
+/* Centraliza o card na tela */
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-    /* QUANDO CLICA DENTRO DE UM INPUT --------------- */
-    input:focus {
-      background-color: #F2F2F2;
-    }
+/* O Cartão Branco Principal */
+.card-box {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 900px; /* Largura boa para 2 colunas */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 6px solid #4caf50; /* Detalhe verde no topo */
+}
 
-    /* -------------------------------------------------- */
-    /* --------------------------------------------------------------- */
-    /* C O R P O  -------------------------------------------------- */
-    body {
-      background-image: url(./image/cafe4.jpg);
-      background-size: cover;
-      
-    }
+/* Cabeçalho */
+.form-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
 
-    /* --------------------------------------------------------------- */
-    /* FUNCION DEL BOTON REGISTRARSE --------- */
-    #button {
-      width: 40%;
-      font-family: sans-serif;
-      font-size: 15px;
-      font-weight: bolder;
-      background-color: #241608;
-      color: #fff;
-      cursor: pointer;
-      margin-bottom: 15px;
-      margin-left: 25px;
-      border: none;
-      padding: 3%;
-      border-radius: 20px 10px 20px 10px;
-      /* SOMBRA BOTON: darle sommbre al boton "resgistrarse"*/
-      -webkit-box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-      box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-    }
+.form-header h1 {
+    color: #1b5e20;
+    font-size: 24px;
+    font-weight: 700;
+}
 
-    #button:hover {
-      background-color: #2d1c0a;
-    }
+.form-header p {
+    color: #666;
+    font-size: 14px;
+}
 
-    /* ---------------------------------------- */
-    #uploadForm{
-        margin-left: 800px;
-        width: 400px;
+/* Corpo do Formulário (Onde a mágica das colunas acontece) */
+.form-body {
+    display: flex;
+    gap: 40px; /* Espaço entre as colunas */
+}
+
+/* Coluna Esquerda e Direita */
+.col-left {
+    flex: 1.5; /* Esquerda ocupa 60% */
+}
+
+.col-right {
+    flex: 1; /* Direita ocupa 40% */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza a imagem */
+}
+
+/* Títulos H3 */
+h3 {
+    color: #4caf50;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1b5e20;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #4caf50;
+    background-color: #fff;
+}
+
+.row-inputs {
+    display: flex;
+    gap: 15px;
+}
+
+/* Área da Imagem */
+.image-area {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #4caf50;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f8e9;
+    margin-bottom: 15px;
+}
+
+.image-area img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Botão de Upload Personalizado */
+.btn-upload {
+    display: inline-block;
+    background-color: #1b5e20;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-upload:hover {
+    background-color: #2e7d32;
+    transform: translateY(-2px);
+}
+
+/* Rodapé com Botões */
+.form-footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end; /* Alinha à direita */
+    gap: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+button, .btn-cancel {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-save {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #43a047;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.btn-cancel {
+    background-color: #eee;
+    color: #555;
+}
+
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+    .form-body {
+        flex-direction: column; /* Empilha no celular */
     }
+    .form-footer {
+        flex-direction: column-reverse;
+    }
+    .btn-save, .btn-cancel {
+        width: 100%;
+        text-align: center;
+    }
+}

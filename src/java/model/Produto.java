@@ -8,6 +8,7 @@ public class Produto {
     private int preco;
     private String contato;
     private int idusuario;
+    private String imagem;
 
     public Produto() {
     }
@@ -67,6 +68,14 @@ public class Produto {
 
     public void setIdusuario(int idusuario) {
         this.idusuario = idusuario;
+    }
+    
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
     
 }

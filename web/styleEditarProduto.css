@@ -1,100 +1,150 @@
- #formulario {
-      font-family: sans-serif;
-      background: #1f1204;
-      color: white;
-      padding: 5px;
-      text-align: center;
-      border-top-left-radius: 19px;
-      border-top-right-radius: 19px;
-      border-bottom: 5px solid white;
-      margin-bottom: 5px;
-      
-    }
+/* --------------------------------------------------------------- */
+/* CABEÇALHO DO FORMULÁRIO --------------------------------------- */
+#formulario {
+  font-family: 'Poppins', sans-serif;
+  background: #3B7A57; /* verde natural */
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+  border-bottom: 5px solid #A1C181; /* verde claro */
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
 
-    /* --------------------------------------------------------------- */
-    /* --------------------------------------------------------------- */
-    /* FORMULARIO: fondo blanco y casillas --------------------------- */
-    form {
-      background-color: #1f1204;
-      margin: 10px;
-      margin: 0 auto;
-      border-radius: 19px;
-      width: 40%;
-      /* SECUENCIA: para centrar formulario */
-      position: absolute;
-      top: 50%;
-      left: 25%;
-      transform: translate(-50%, -50%);
-    }
+/* --------------------------------------------------------------- */
+/* FORMULÁRIO PRINCIPAL ------------------------------------------ */
+form {
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 20px;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  padding-bottom: 10px;
+}
 
-    /* TAMAÑO LETRA: nombre, apellido, e-mail, etc ----- */
-    label {
-      margin-left: 8px;
-      font-size: 12px;
-      padding: 5px;
-      display: block;
-      color: white;
-      width: 100%;
-      font-family: sans-serif;
-    }
+/* --------------------------------------------------------------- */
+/* LABELS -------------------------------------------------------- */
+label {
+  margin-left: 10px;
+  font-size: 13px;
+  padding: 5px;
+  display: block;
+  color: #3B7A57;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
 
-    /* -------------------------------------------------- */
-    /* EDICION CADA INPUT: diseño ----------------------- */
-    input {
-      margin-bottom: 10px;
-      width: 95%;
-      padding: 2%;
-      margin-left: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      
-      font-style: italic;
-    }
+/* --------------------------------------------------------------- */
+/* CAMPOS DE TEXTO / INPUTS -------------------------------------- */
+input {
+  margin-bottom: 12px;
+  width: 93%;
+  padding: 10px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  border: 1px solid #BDBDBD;
+  border-radius: 12px;
+  font-style: normal;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #FAFAFA;
+  transition: all 0.2s ease;
+}
 
-    /* QUANDO CLICA DENTRO DE UM INPUT --------------- */
-    input:focus {
-      background-color: #F2F2F2;
-    }
+input:focus {
+  background-color: #FFFFFF;
+  border-color: #3B7A57;
+  box-shadow: 0 0 6px rgba(59, 122, 87, 0.3);
+  outline: none;
+}
 
-    /* -------------------------------------------------- */
-    /* --------------------------------------------------------------- */
-    /* C O R P O  -------------------------------------------------- */
-    body {
-      background-image: url(./image/cafe4.jpg);
-      background-size: cover;
-      
-    }
+/* --------------------------------------------------------------- */
+/* FUNDO GERAL --------------------------------------------------- */
+body {
+  background-color: #F5F6EE; /* bege claro */
+  background-image: none;
+  font-family: 'Poppins', sans-serif;
+}
 
-    /* --------------------------------------------------------------- */
-    /* FUNCION DEL BOTON REGISTRARSE --------- */
-    #button {
-      width: 40%;
-      font-family: sans-serif;
-      font-size: 15px;
-      font-weight: bolder;
-      background-color: #241608;
-      color: #fff;
-      cursor: pointer;
-      margin-bottom: 15px;
-      margin-left: 25px;
-      border: none;
-      padding: 3%;
-      border-radius: 20px 10px 20px 10px;
-      /* SOMBRA BOTON: darle sommbre al boton "resgistrarse"*/
-      -webkit-box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-      box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-    }
+/* --------------------------------------------------------------- */
+/* BOTÕES -------------------------------------------------------- */
+#button {
+  width: 40%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #3B7A57; /* verde principal */
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-left: 25px;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
 
-    #button:hover {
-      background-color: #2d1c0a;
-    }
+#button:hover {
+  background-color: #2E6144; /* verde escuro ao passar o mouse */
+  transform: scale(1.02);
+}
 
-    /* ---------------------------------------- */
-    #uploadForm{
-        margin-left: 800px;
-        width: 400px;
-    }
+/* --------------------------------------------------------------- */
+/* SEÇÃO DE UPLOAD DE IMAGEM ------------------------------------ */
+#uploadForm {
+  margin-left: 800px;
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+#uploadForm img {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid #A1C181;
+  margin-bottom: 10px;
+}
+
+#uploadForm input[type="file"] {
+  background-color: #3B7A57;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#uploadForm input[type="file"]:hover {
+  background-color: #2E6144;
+}
+
+#uploadForm input[type="submit"] {
+  margin-top: 10px;
+  background-color: #A1C181;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#uploadForm input[type="submit"]:hover {
+  background-color: #7EA169;
+}

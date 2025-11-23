@@ -10,11 +10,13 @@ public class Usuario {
     private String email;
     private String telefone;
     private boolean permissao;
+    private String foto; // ATRIBUTO DA FOTO
 
     public Usuario() {
     }
 
-    public Usuario(Integer idusuario, String nome, String login, String senha, int idade, String sexo, String email, String telefone, boolean permissao) {
+    // CONSTRUTOR CORRIGIDO: ADICIONADA A VARIÁVEL 'foto'
+    public Usuario(Integer idusuario, String nome, String login, String senha, int idade, String sexo, String email, String telefone, boolean permissao, String foto) {
         this.idusuario = idusuario;
         this.nome = nome;
         this.login = login;
@@ -24,6 +26,7 @@ public class Usuario {
         this.email = email;
         this.telefone = telefone;
         this.permissao = permissao;
+        this.foto = foto; // Inicializa a foto
     }
 
     public Integer getIdusuario() {
@@ -96,6 +99,14 @@ public class Usuario {
 
     public void setPermissao(boolean permissao) {
         this.permissao = permissao;
+    }
+    
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
     
 }

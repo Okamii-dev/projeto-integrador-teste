@@ -1,87 +1,104 @@
+<%-- 
+    Document   : cadastro_produto
+    Created on : 05/06/2023
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SEMEIA PRODUTORES - Cadastro de Produtos</title>
+        <title>Cadastrar Produto</title>
         <link rel="stylesheet" href="styleCadastroproduto.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <form class="form" action="Produto" method="POST" name="frm_cad_produto" id="frm_cad_produto" required>
-            <div id="formulario">
-                <h1> CADASTRO DE PRODUTO</h1>
-            </div>
+        
+        <div class="main-container">
+            
+            <form action="Produto" method="POST" enctype="multipart/form-data" class="card-box">
+                
+                <div class="form-header">
+                    <h1>Novo Produto</h1>
+                    <p>Preencha os dados abaixo</p>
+                </div>
 
-            <div id="formulario-cadastro">
-                <label for="txtProduto">Produto</label>
-                <input placeholder="Digite o nome do produto" name="txtProduto" type="text" id="txtProduto">
+                <div class="form-body">
+                    
+                    <div class="col-left">
+                        <h3>Informações</h3>
+                        
+                        <input type="hidden" value="cad_produto" name="acao">
+                        <input type="hidden" value="${usuario.idusuario}" name="idusuario">
 
-                <label for="txtDescricao">Descrição</label>
-                <input placeholder="Descrição do Produto" name="txtDescricao" type="text" id="txtDescricao">
+                        <div class="input-group">
+                            <label>Nome do Produto</label>
+                            <input type="text" name="txtProduto" placeholder="Ex: Alface Crespa" required>
+                        </div>
 
-                <label for="cotxtPrecorreo">Preço</label>
-                <input placeholder="Preço do Poduto" name="txtPreco" type="txt" id="txPreco">
+                        <div class="input-group">
+                            <label>Descrição</label>
+                            <textarea name="txtDescricao" placeholder="Detalhes do produto..." rows="3"></textarea>
+                        </div>
 
-                <label for="txtContato">Contato</label>
-                <input placeholder="(00)00000-0000" name="txtContato" type="tel" id="txtContato">
+                        <div class="row-inputs">
+                            <div class="input-group">
+                                <label>Preço (R$)</label>
+                                <input type="text" name="txtPreco" placeholder="0,00" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Contato</label>
+                                <input type="tel" name="txtContato" placeholder="(00) 00000-0000" required>
+                            </div>
+                        </div>
+                    </div>
 
-                <label for="txtId">Usuario</label>
-                <input type="hidden" value="${usuario.idusuario}" id="idusuario" name="idusuario">
-            </div>
-            <input type="hidden" value="cad_produto" id="acao" name="acao">
-            <button id="button" type="submit" value="Enviar dados"> Salvar </button>
-            <button id="button" type="reset" value="Limpar dados"> limpar </button>
-        </form>        
-    </form>
-    
-    <form id="uploadForm" enctype="multipart/form-data">
-        <img id="fotoUsuario" src="./image/cafe4.jpg" alt="Foto do usuário" style="width: 400px; height: 200px; border-radius: 20px;">
-        <input type="file" id="fotoInput" name="foto" accept="image/*" required style="color:white;">
-        <input type="submit" value="Enviar">
-    </form>
+                    <div class="col-right">
+                        <h3>Foto do Produto</h3>
+                        
+                        <div class="image-area">
+                            <img src="https://via.placeholder.com/300x200/e8f5e9/1b5e20?text=Sem+Foto" id="previewImg" alt="Preview">
+                        </div>
+                        
+                        <input type="file" name="foto" id="fileInput" accept="image/*" style="display: none;">
+                        
+                        <label for="fileInput" class="btn-upload">
+                            <i class='bx bxs-camera'></i> Escolher Imagem
+                        </label>
+                    </div>
+                </div>
 
+                <div class="form-footer">
+                    <button type="submit" class="btn-save">Cadastrar Produto</button>
+                    <a href="area_vendedor.jsp" class="btn-cancel">Cancelar</a>
+                </div>
 
-    <script>
-        $(document).ready(function () {
-            // Quando o formulário for enviado
-            $('#uploadForm').submit(function (e) {
-                e.preventDefault(); // Evita o envio padrão do formulário
+            </form>
+        </div>
 
-                var formData = new FormData(this); // Cria um objeto FormData com os dados do formulário
+        <script>
+            const fileInput = document.getElementById('fileInput');
+            const previewImg = document.getElementById('previewImg');
 
-                // Envia a requisição AJAX
-                $.ajax({
-                    url: 'seu_script_de_armazenamento.php', // Substitua pelo caminho do seu script de armazenamento
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (response) {
-                        // Ação a ser executada em caso de sucesso
-                        console.log('Foto enviada com sucesso!');
-                        $('#fotoUsuario').attr('src', response); // Atualiza a imagem de usuário com a nova foto
-                    },
-                    error: function () {
-                        // Ação a ser executada em caso de erro
-                        console.log('Erro ao enviar a foto!');
+            fileInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImg.src = e.target.result;
                     }
-                });
+                    reader.readAsDataURL(file);
+                }
             });
+        </script>
 
-            // Quando um arquivo for selecionado
-            $('#fotoInput').change(function () {
-                var file = this.files[0]; // Obtém o arquivo selecionado
-                var reader = new FileReader();
-
-                // Função de callback quando a leitura do arquivo estiver concluída
-                reader.onload = function (e) {
-                    $('#fotoUsuario').attr('src', e.target.result); // Atualiza a imagem de usuário com a nova foto
-                };
-
-                // Lê o arquivo como uma URL de dados
-                reader.readAsDataURL(file);
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>

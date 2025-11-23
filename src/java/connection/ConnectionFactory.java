@@ -13,7 +13,7 @@ public class ConnectionFactory {
     
     // MUDANÇA 2: O endereço CORRETO do banco local
     // ATENÇÃO: Troque 'NOME_DO_SEU_BANCO' pelo nome exato que você criou no MySQL
-    private static String URL = "jdbc:mysql://localhost:3306/user2?useTimezone=true&serverTimezone=UTC";
+    private static String URL = "jdbc:mysql://localhost:3306/mysql?useTimezone=true&serverTimezone=UTC";
     
     // MUDANÇA 3: Usuário padrão do MySQL geralmente é 'root'
     private static String USER = "root";

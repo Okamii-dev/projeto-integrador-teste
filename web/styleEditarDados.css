@@ -1,94 +1,271 @@
-#formulario {
-      font-family: sans-serif;
-      background: #1f1204;
-      color: white;
-      padding: 5px;
-      text-align: center;
-      border-top-left-radius: 19px;
-      border-top-right-radius: 19px;
-      border-bottom: 5px solid white;
-      margin-bottom: 5px;
-      
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    /* --------------------------------------------------------------- */
-    /* --------------------------------------------------------------- */
-    /* FORMULARIO: fondo blanco y casillas --------------------------- */
-    form {
-      background-color: #1f1204;
-      margin: 10px;
-      margin: 0 auto;
-      border-radius: 19px;
-      width: 40%;
-      /* SECUENCIA: para centrar formulario */
-      position: absolute;
-      top: 50%;
-      left: 25%;
-      transform: translate(-50%, -50%);
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    /* TAMAÑO LETRA: nombre, apellido, e-mail, etc ----- */
-    label {
-      margin-left: 8px;
-      font-size: 12px;
-      padding: 5px;
-      display: block;
-      color: white;
-      width: 100%;
-      font-family: sans-serif;
-    }
+/* ========================= */
+/* PLANO DE FUNDO COM DESFOQUE */
+/* ========================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 
-    /* -------------------------------------------------- */
-    /* EDICION CADA INPUT: diseño ----------------------- */
-    input {
-      margin-bottom: 10px;
-      width: 95%;
-      padding: 2%;
-      margin-left: 10px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      
-      font-style: italic;
-    }
+    background: url(image/editardados.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
 
-    /* QUANDO CLICA DENTRO DE UM INPUT --------------- */
-    input:focus {
-      background-color: #F2F2F2;
-    }
+/* Camada escurecida + desfoque suave */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: -1;
+    animation: fadeBg 1.5s ease forwards;
+}
 
-    /* -------------------------------------------------- */
-    /* --------------------------------------------------------------- */
-    /* C O R P O  -------------------------------------------------- */
-    body {
-      background-image: url(./image/cafe4.jpg);
-      background-size: cover;
-      
+@keyframes fadeBg {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
     }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(8px);
+    }
+}
 
-    /* --------------------------------------------------------------- */
-    /* FUNCION DEL BOTON REGISTRARSE --------- */
-    #button {
-      width: 95%;
-      font-family: sans-serif;
-      font-size: 15px;
-      font-weight: bolder;
-      background-color: #241608;
-      margin-left: 12px;
-      color: #fff;
-      cursor: pointer;
-      margin-bottom: 15px;
-      border: none;
-      padding: 3%;
-      border-radius: 20px 10px 20px 10px;
-      /* SOMBRA BOTON: darle sommbre al boton "resgistrarse"*/
-      -webkit-box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-      box-shadow: 4px 9px 8px -4px rgba(0, 0, 0, 0.75);
-    }
+/* ========================= */
+/* FORMULÁRIO PRINCIPAL */
+/* ========================= */
+.form-box { /* Novo seletor */
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden;
 
-    #button:hover {
-      background-color: #2d1c0a;
+    /* Animação de entrada */
+    opacity: 0;
+    animation: fadeInForm 1s ease forwards;
+}
+
+@keyframes fadeInForm {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================= */
+/* CABEÇALHO DO FORMULÁRIO (.form-header) */
+/* ========================= */
+.form-header {
+    background: #1b5e20; /* Verde Floresta Rico */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #4caf50; /* Linha Verde Lima */
+    margin-bottom: 20px;
+}
+
+.form-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.form-header p {
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* ========================= */
+/* CORPO DO FORMULÁRIO (.form-body) */
+/* ========================= */
+.form-body { /* Novo seletor */
+    padding: 0 30px; /* Espaçamento interno */
+}
+
+/* INPUTS E LABELS */
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #1b5e20;
+    font-size: 14px;
+    font-weight: 600;
+
+    opacity: 0;
+    animation: fadeContent 1s ease forwards 0.3s;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease;
+
+    opacity: 0;
+    animation: fadeContent 1s ease forwards 0.4s;
+}
+
+input:focus, select:focus {
+    background-color: #fff;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+}
+
+/* Estilo para input somente leitura (Login) */
+input.readonly {
+    background-color: #e0e0e0;
+    color: #555;
+    cursor: not-allowed;
+}
+
+@keyframes fadeContent {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================= */
+/* LAYOUT DE LINHA (Telefone e Idade) */
+/* ========================= */
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.row .input-group {
+    flex: 1; /* Garante que os grupos de input ocupem o espaço igualmente */
+}
+
+/* ========================= */
+/* BOTÕES (FOOTER) */
+/* ========================= */
+.form-footer { /* Novo seletor */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeContent 1s ease forwards 0.6s;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-save { /* Novo seletor */
+    background-color: #4caf50;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.btn-save:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn-cancel { /* Novo seletor */
+    background-color: #f1f1f1;
+    color: #555;
+    border: 1px solid transparent;
+}
+
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* ========================= */
+/* VERSÃO MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column; /* Empilha Idade e Telefone no mobile */
+        gap: 0;
+    }
+    .form-box {
+        margin: 0;
+    }
+}
+
+/* Estilos para a foto de perfil (mantidos do inline) */
+.profile-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profile-img-box {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #4caf50;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    position: relative;
+    background: #fff;
+}
+.profile-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.btn-upload-mini {
+    background: #1b5e20;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+.btn-upload-mini:hover {
+    background: #2e7d32;
+    transform: scale(1.05);
+}
