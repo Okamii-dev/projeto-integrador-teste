@@ -12,5 +12,6 @@ Link do projeto no drive, com tudo incluso: https://drive.google.com/file/d/1ZNV
 
 Conversa com o Gemini sobre como rodar o codigo: https://gemini.google.com/share/46f2367264a6
 Nessa conversa possui todo o passo a passo para poder fazer o sistema funcionar.
+O Script para a criação das tabelas esta na pasta SQL, sem rodar ele previamente o sistema obviamente n ira funcionar
 
 PS: Espero que de tudo certo :)
